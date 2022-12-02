@@ -1,0 +1,565 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+$color-first : #8697DA;
+$color-second: #309FB3;
+$color-third: #95C9C8;
+
+//マップ型変数breakpointsを定義
+$breakpoints: (
+//キー : 値
+  'sp': "(max-width: 520px)", 
+  'tab': "(min-width: 520px) and (max-width: 959px)", 
+  'pc': "(min-width: 960px)"
+) !default;
+
+@mixin mq($breakpoint: sp) {
+  //map-get(マップ型変数, キー)で値を取得
+    @media #{map-get($breakpoints, $breakpoint)} {
+      //この中をカスタムできる
+      @content;
+    }
+  }
+
+body {
+    font-size: 16px;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+    
+    @include mq(sp) {
+        font-size: 14px;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+/*========================================================
+main-visual
+=========================================================*/
+
+
+.main-visual {
+    height: 600px;
+    background-image: url(../img/top.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include mq(tab) {
+        height: 300px;
+    }
+
+    @include mq(sp) {
+        height: 200px;
+    }
+}
+
+/*========================================================
+header
+=========================================================*/
+
+header {
+    height: 60px;
+    background-color: $color-first;
+
+    @include mq(sp) {
+        height: 40px;
+    }
+}
+
+.header__nav {
+    width: 600px;
+    max-width: 90%;
+    margin: auto;
+}
+
+.header__list {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.header__list--item {
+    a {
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+        line-height: 60px;
+
+        @include mq(sp) {
+            line-height: 40px;
+        }
+    }
+}
+
+/*========================================================
+section共通
+=========================================================*/
+
+.section__title {
+    font-size: 40px;
+    text-align: center;
+    font-family:'メイリオ', 'Meiryo', sans-serif;
+}
+
+.section__line {
+    width: 50%;
+    height: 80px;
+    border-right: 1px solid #000;
+
+    @include mq(sp) {
+        height: 40px;
+    }
+}
+
+.wrapper {
+    width: 830px;
+    max-width: 90%;
+    margin: auto;
+}
+
+/*========================================================
+about
+=========================================================*/
+
+.about {
+    margin: 70px auto 0;
+
+    @include mq(tab) {
+        margin-top: 50px;
+    }
+
+    @include mq(sp) {
+        margin-top: 30px;
+    }
+}
+
+.about__contents {
+    display: flex;
+    margin-top: 50px;
+
+    @include mq(tab) {
+        justify-content: space-between;
+    }
+
+    @include mq(sp) {
+        display: block;
+        margin-top: 30px;
+    }
+}
+
+.about__img {
+    width: 350px;
+    height: 250px;
+    
+    @include mq(tab) {
+        width: 40%;
+        height: auto;
+    }
+
+    @include mq(sp) {
+        width: 100%;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.about__info {
+    width: 410px;
+    margin-left: auto;
+
+    @include mq(tab) {
+        width: 50%;
+        margin-left: 0px;
+    }
+
+    @include mq(sp) {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+.about__info--item {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.about__info--description {
+    margin-top: 30px;
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+/*========================================================
+skill
+=========================================================*/
+
+.skill {
+    margin: 150px auto 0;
+
+    @include mq(tab) {
+        margin-top: 100px;
+    }
+
+    @include mq(sp) {
+        margin-top: 50px;
+    }
+}
+
+.skill__contents {
+    height: auto;
+    margin-top: 50px;
+    border: 1px solid #000;
+    padding: 45px 30px;
+
+    @include mq(tab) {
+        padding: 20px 15px;
+    }
+
+    @include mq(sp) {
+        margin-top: 30px;
+        padding: 15px 10px;
+    }
+}
+
+.skill__item {
+    display: flex;
+    justify-content: space-between;
+
+    &:not(:first-child) {
+        margin-top: 20px;
+    }
+}
+
+.skill__item--title {
+    width: 130px;
+    height: 32px;
+    line-height: 32px;
+    color: #fff;
+    background-color: $color-second;
+    border-radius: 30px;
+    font-size: 20px;
+    text-align: center;
+
+    @include mq(tab) {
+        font-size: 18px;
+    }
+
+    @include mq(sp) {
+        font-size: 16px;
+    }
+}
+
+.skill__item--description {
+    width: 470px;
+
+    @include mq(tab) {
+        margin-left: 10px;
+    }
+
+    @include mq(sp) {
+        margin-left: 10px;
+    }
+}
+
+/*========================================================
+service
+=========================================================*/
+
+.service {
+    margin: 150px auto 0;
+
+    @include mq(tab) {
+        margin-top: 100px;
+    }
+
+    @include mq(sp) {
+        margin-top: 50px;
+    }
+}
+
+.service__contents {
+    margin-top: 50px;
+
+    @include mq(sp) {
+        margin-top: 30px;
+    }
+}
+
+.service__item {
+    display: flex;
+
+    @include mq(tab) {
+        justify-content: center;
+    }
+
+    @include mq(sp) {
+        display: block;
+    }
+    
+    &:not(:first-child) {
+        margin-top: 74px;
+
+        @include mq(sp) {
+            margin-top: 30px;
+        }
+    }
+}
+
+.service__item--title {
+    width: 270px;
+    font-weight: 700;
+    font-size: 24px;
+
+    @include mq(tab) {
+        width: 40%;
+        font-size: 20px;
+    }
+}
+
+.service__item--description {
+    width: 480px;
+    margin-left: auto;
+
+    @include mq(tab) {
+        width: 50%;
+        margin-left: 10px;
+    }
+
+    @include mq(sp) {
+        width: 100%;
+    }
+}
+
+/*========================================================
+works
+=========================================================*/
+
+.works {
+    margin-top: 150px;
+    background-color: $color-third;
+    padding: 20px 0 64px;
+
+    @include mq(tab) {
+        margin-top: 100px;
+    }
+
+    @include mq(sp) {
+        margin-top: 50px;
+    }
+}
+
+.works__contents {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include mq(sp) {
+        margin-top: 30px;
+    }
+}
+
+.works__content {
+    width: calc(33.3% - 24px * 2 / 3);
+
+    &:not(:first-child) {
+        margin-left: 24px;
+    }
+}
+
+.works__img {
+    width: 100%;
+    height: 160px;
+
+    @include mq(tab) {
+        width: 400px;
+        margin: auto;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.works__description {
+    margin: 20px auto 0;
+    text-align: center;
+    a {
+        color: #000;
+    }
+}
+
+/*========================================================
+contact
+=========================================================*/
+
+.contact {
+    margin-top: 150px;
+
+    @include mq(tab) {
+        margin-top: 100px;
+    }
+
+    @include mq(sp) {
+        margin-top: 50px;
+    }
+}
+
+.contact__lead {
+    width: 80%;
+    margin: 50px auto 0;
+
+    @include mq(tab) {
+        width: 100%;
+    }
+
+    @include mq(sp) {
+        width: 100%;
+        margin-top: 30px;
+    }
+}
+
+.contact__form {
+    margin-top: 50px;
+
+    @include mq(sp) {
+        margin-top: 30px;
+    }
+}
+
+.contact__form--item {
+    margin-top: 18px;
+
+    label {
+        display: inline-block;
+        margin-left: 20px;
+        position: relative;
+    }
+
+    input {
+        margin-top: 22px;
+        padding: 10px;
+        width: 100%;
+        font-size: 16px;
+
+        @include mq(sp) {
+            margin-top: 12px;
+            font-size: 14px;
+        }
+    }
+
+    textarea {
+        margin-top: 22px;
+        padding: 10px;
+        width: 100%;
+        font-size: 16px;
+        resize: none;
+        height: 210px;
+
+        @include mq(sp) {
+            font-size: 14px;
+        }
+    }
+
+    .required::after {
+        content: '必須';
+        position: absolute;
+        top: -4px;
+        right: -60px;
+        color: #fff;
+        padding: 3.5px 9px;
+        background-color: #B23030;
+    }
+}
+
+.button {
+
+    @include mq(sp) {
+        text-align: center; 
+    }
+
+    button {
+        margin-top: 70px;
+        padding: 19px 56px;
+        color: #fff;
+        background-color: $color-first;
+        border: none;
+        font-size: 16px;
+        margin-left: 30px;
+        font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+        
+        @include mq(sp) {
+            margin: 30px auto 0px;
+            font-size: 14px;
+        }
+    }
+}
+
+
+.top-button {
+    object-fit: cover;
+    width: 30px;
+    height: 18px;
+    margin: 100px auto 0;
+
+    @include mq(sp) {
+        margin-top: 40px;
+    }
+}
+
+/*========================================================
+footer
+=========================================================*/
+
+footer {
+    height: 60px;
+    margin-top: 70px;
+
+    @include mq(sp) {
+        height: 40px;
+        max-width: 90%;
+        margin: 30px auto 0;
+    }
+}
+
+.footer__list {
+    display: flex;
+    width: 50%;
+    line-height: 60px;
+    margin-left: auto;
+
+    @include mq(tab){
+        width: auto;
+        margin-right: 30px;
+        justify-content: flex-end;
+    }
+
+    @include mq(sp) {
+        width: 100%;
+        margin-left: 0px;
+        justify-content: space-around;
+        line-height: 40px;
+    }
+}
+
+.footer__list--item {
+
+    a {
+        color: #000;
+        font-weight: 700;
+        font-family: 'Inter', sans-serif;
+    }
+
+    &:not(:first-child) {
+        margin-left: 30px;
+
+        @include mq(sp) {
+            margin-left: 0px;
+        }
+    }
+}
+
