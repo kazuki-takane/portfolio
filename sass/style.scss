@@ -57,6 +57,7 @@ main-visual
     background-image: url(../img/top.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    position: relative;
 
     @include mq(tab) {
         height: 300px;
@@ -65,6 +66,19 @@ main-visual
     @include mq(sp) {
         height: 200px;
     }
+}
+
+.main-visual__text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1em;
+    text-align: center;
+    text-indent: 1em;
 }
 
 /*========================================================
@@ -211,6 +225,7 @@ about
         height: 100%;
         object-fit: cover;
         border-radius: 50%;
+        vertical-align: bottom;
     }
 }
 
@@ -450,6 +465,7 @@ works
         height: 100%;
         object-fit: cover;
         border-radius: 10px;
+        vertical-align: bottom;
         transition: transform 0.4s;
     }
 }

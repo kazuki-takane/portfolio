@@ -33,6 +33,7 @@ main-visual
   background-image: url(../img/top.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  position: relative;
 }
 @media (min-width: 520px) and (max-width: 959px) {
   .main-visual {
@@ -43,6 +44,19 @@ main-visual
   .main-visual {
     height: 200px;
   }
+}
+
+.main-visual__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1em;
+  text-align: center;
+  text-indent: 1em;
 }
 
 /*========================================================
@@ -188,6 +202,7 @@ about
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
+  vertical-align: bottom;
 }
 
 .about__info {
@@ -436,6 +451,7 @@ works
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
+  vertical-align: bottom;
   transition: transform 0.4s;
 }
 
