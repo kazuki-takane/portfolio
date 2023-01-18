@@ -9,9 +9,9 @@ $font-family-en: 'Nunito', sans-serif;
 //マップ型変数breakpointsを定義
 $breakpoints: (
 //キー : 値
-  'sp': "(max-width: 520px)", 
-  'tab': "(min-width: 520px) and (max-width: 959px)", 
-  'pc': "(min-width: 960px)"
+  'sp': "(max-width: 767px)", 
+  'tab': "(min-width: 768px) and (max-width: 1200px)", 
+  'pc': "(min-width: 1200px)"
 ) !default;
 
 @mixin mq($breakpoint: sp) {
@@ -31,7 +31,7 @@ body {
     color: #333;
     font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
     
-    @include mq(sp) {
+    @include mq('sp') {
         font-size: 14px;
     }
 }
@@ -59,11 +59,11 @@ main-visual
     background-repeat: no-repeat;
     position: relative;
 
-    @include mq(tab) {
+    @include mq('tab') {
         height: 300px;
     }
 
-    @include mq(sp) {
+    @include mq('sp') {
         height: 200px;
     }
 }
@@ -79,6 +79,17 @@ main-visual
     letter-spacing: 1em;
     text-align: center;
     text-indent: 1em;
+
+    @include mq('tab') {
+        letter-spacing: 0.1em;
+        text-indent: 0;
+    }
+
+    @include mq('sp') {
+        letter-spacing: 0.1em;
+        font-size: 50px;
+        text-indent: 0;
+    }
 }
 
 /*========================================================
@@ -89,7 +100,7 @@ header {
     height: 60px;
     background-color: $color-first;
 
-    @include mq(sp) {
+    @include mq('sp') {
         height: 40px;
     }
 }
@@ -114,8 +125,9 @@ header {
         letter-spacing: 0.1em;
         position: relative;
 
-        @include mq(sp) {
+        @include mq('sp') {
             line-height: 40px;
+            font-size: 12px;
         }
 
         &:hover {
@@ -153,6 +165,11 @@ section共通
     margin-bottom: 140px;
     letter-spacing: 0.05em;
 
+    @include mq('sp') {
+        font-size: 40px;
+        margin-bottom: 60px;
+    }
+
     &::after {
         content: '';
         position: absolute;
@@ -163,8 +180,9 @@ section共通
         transform: translateX(-50%);
         background-color: #000;
 
-        @include mq(sp) {
+        @include mq('sp') {
             height: 40px;
+            bottom: -40px;
         }
     }
 }
@@ -182,11 +200,11 @@ about
 .about {
     margin: 70px auto 0;
 
-    @include mq(tab) {
+    @include mq('tab') {
         margin-top: 50px;
     }
 
-    @include mq(sp) {
+    @include mq('sp') {
         margin-top: 30px;
     }
 }
@@ -195,11 +213,11 @@ about
     display: flex;
     align-items: center;
 
-    @include mq(tab) {
+    @include mq('tab') {
         justify-content: space-between;
     }
 
-    @include mq(sp) {
+    @include mq('sp') {
         display: block;
         margin-top: 30px;
     }
@@ -211,13 +229,15 @@ about
     border-radius: 50%;
     box-shadow: 0px 10px 20px rgba(0,0,0,0.25);
     
-    @include mq(tab) {
+    @include mq('tab') {
         width: 40%;
         height: auto;
     }
 
-    @include mq(sp) {
-        width: 100%;
+    @include mq('sp') {
+        width: 80%;
+        margin: 0 auto;
+        height: 200px;
     }
 
     img {
@@ -233,12 +253,12 @@ about
     width: 45%;
     margin-left: auto;
 
-    @include mq(tab) {
+    @include mq('tab') {
         width: 50%;
         margin-left: 0px;
     }
 
-    @include mq(sp) {
+    @include mq('sp') {
         width: 100%;
         margin-top: 20px;
     }
@@ -248,6 +268,10 @@ about
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 4px;
+
+    @include mq('sp') {
+        font-size: 16px;
+    }
 }
 
 .about__info--description {
@@ -255,6 +279,10 @@ about
     font-size: 18px;
     letter-spacing: 0.04em;
     line-height: 1.6;
+
+    @include mq('sp') {
+        font-size: 14px;
+    }
 }
 
 /*========================================================
@@ -266,22 +294,22 @@ skill
     padding: 80px 0 100px;
     background-color: rgba($color: $color-third, $alpha: 0.4);
 
-    @include mq(tab) {
+    @include mq('tab') {
         margin-top: 100px;
     }
 
-    @include mq(sp) {
+    @include mq('sp') {
         margin-top: 50px;
     }
 }
 
 .skill__contents {
 
-    @include mq(tab) {
+    @include mq('tab') {
         padding: 20px 15px;
     }
 
-    @include mq(sp) {
+    @include mq('sp') {
         margin-top: 30px;
         padding: 15px 10px;
     }
@@ -294,6 +322,14 @@ skill
 
     &:not(:first-child) {
         margin-top: 20px;
+
+        @include mq('sp') {
+            margin-top: 40px;
+        }
+    }
+
+    @include mq('sp') {
+        display: block;
     }
 }
 
@@ -308,12 +344,13 @@ skill
     text-align: center;
     box-shadow: 0px 10px 20px rgba(0,0,0,0.25);
 
-    @include mq(tab) {
-        font-size: 18px;
+    @include mq('tab') {
+        font-size: 24px;
     }
 
-    @include mq(sp) {
-        font-size: 16px;
+    @include mq('sp') {
+        font-size: 20px;
+        margin: 0 auto;
     }
 }
 
@@ -322,12 +359,12 @@ skill
     margin-left: 50px;
     font-size: 20px;
 
-    @include mq(tab) {
-        margin-left: 10px;
-    }
-
-    @include mq(sp) {
-        margin-left: 10px;
+    @include mq('sp') {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 30px;
+        font-size: 14px;
+        text-align: center;
     }
 }
 
@@ -338,19 +375,12 @@ service
 .service {
     margin: 100px auto 0;
 
-    @include mq(tab) {
+    @include mq('tab') {
         margin-top: 100px;
     }
 
-    @include mq(sp) {
+    @include mq('sp') {
         margin-top: 50px;
-    }
-}
-
-.service__contents {
-
-    @include mq(sp) {
-        margin-top: 30px;
     }
 }
 
@@ -358,19 +388,19 @@ service
     display: flex;
     align-items: center;
 
-    @include mq(tab) {
+    @include mq('tab') {
         justify-content: center;
     }
 
-    @include mq(sp) {
+    @include mq('sp') {
         display: block;
     }
     
     &:not(:first-child) {
         margin-top: 74px;
 
-        @include mq(sp) {
-            margin-top: 30px;
+        @include mq('sp') {
+            margin-top: 50px;
         }
     }
 }
@@ -385,8 +415,8 @@ service
     background-color: rgba($color: $color-first, $alpha: 0.1);
     text-align: center;
 
-    @include mq(tab) {
-        width: 40%;
+    @include mq('sp') {
+        width: 100%;
         font-size: 20px;
     }
 }
@@ -396,13 +426,10 @@ service
     margin-left: auto;
     width: 60%;
 
-    @include mq(tab) {
-        width: 50%;
-        margin-left: 10px;
-    }
-
-    @include mq(sp) {
+    @include mq('sp') {
         width: 100%;
+        margin-top: 30px;
+        font-size: 14px;
     }
 }
 
@@ -415,11 +442,11 @@ works
     background-color: rgba($color: $color-third, $alpha: 0.4);
     padding: 100px 0;
 
-    @include mq(tab) {
+    @include mq('tab') {
         margin-top: 100px;
     }
 
-    @include mq(sp) {
+    @include mq('sp') {
         margin-top: 50px;
     }
 }
@@ -428,8 +455,8 @@ works
     display: flex;
     flex-wrap: wrap;
 
-    @include mq(sp) {
-        margin-top: 30px;
+    @include mq('sp') {
+        display: block;
     }
 }
 
@@ -438,6 +465,15 @@ works
 
     &:not(:first-child) {
         margin-left: 24px;
+
+        @include mq('sp') {
+            margin-left: 0;
+        }
+    }
+
+    @include mq('sp') {
+        width: 100%;
+        margin-top: 30px;
     }
 }
 
@@ -455,11 +491,6 @@ works
         }
     }
 
-    @include mq(tab) {
-        width: 400px;
-        margin: auto;
-    }
-
     img {
         width: 100%;
         height: 100%;
@@ -467,6 +498,10 @@ works
         border-radius: 10px;
         vertical-align: bottom;
         transition: transform 0.4s;
+    }
+
+    @include mq('sp') {
+        height: auto;
     }
 }
 
@@ -509,11 +544,11 @@ contact
 .contact {
     margin-top: 100px;
 
-    @include mq(tab) {
+    @include mq('tab') {
         margin-top: 100px;
     }
 
-    @include mq(sp) {
+    @include mq('sp') {
         margin-top: 50px;
     }
 }
@@ -523,11 +558,11 @@ contact
     margin: 50px auto 0;
     text-align: center;
 
-    @include mq(tab) {
+    @include mq('tab') {
         width: 100%;
     }
 
-    @include mq(sp) {
+    @include mq('sp') {
         width: 100%;
         margin-top: 30px;
     }
@@ -536,7 +571,7 @@ contact
 .contact__form {
     margin-top: 50px;
 
-    @include mq(sp) {
+    @include mq('sp') {
         margin-top: 30px;
     }
 }
@@ -556,7 +591,7 @@ contact
         width: 100%;
         font-size: 16px;
 
-        @include mq(sp) {
+        @include mq('sp') {
             margin-top: 12px;
             font-size: 14px;
         }
@@ -570,7 +605,7 @@ contact
         resize: none;
         height: 210px;
 
-        @include mq(sp) {
+        @include mq('sp') {
             font-size: 14px;
         }
     }
@@ -588,7 +623,7 @@ contact
 
 .button {
 
-    @include mq(sp) {
+    @include mq('sp') {
         text-align: center; 
     }
 
@@ -602,7 +637,7 @@ contact
         margin-left: 30px;
         font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
         
-        @include mq(sp) {
+        @include mq('sp') {
             margin: 30px auto 0px;
             font-size: 14px;
         }
@@ -616,7 +651,7 @@ contact
     height: 18px;
     margin: 100px auto 0;
 
-    @include mq(sp) {
+    @include mq('sp') {
         margin-top: 40px;
     }
 }
@@ -630,9 +665,8 @@ footer {
     margin-top: 100px;
     background-color: $color-first;
 
-    @include mq(sp) {
+    @include mq('sp') {
         height: 40px;
-        max-width: 90%;
         margin: 30px auto 0;
     }
 }
@@ -643,13 +677,13 @@ footer {
     line-height: 60px;
     margin-left: auto;
 
-    @include mq(tab){
+    @include mq('tab'){
         width: auto;
         margin-right: 30px;
         justify-content: flex-end;
     }
 
-    @include mq(sp) {
+    @include mq('sp') {
         width: 100%;
         margin-left: 0px;
         justify-content: space-around;
@@ -664,6 +698,10 @@ footer {
         font-weight: bold;
         font-family: $font-family-en;
         position: relative;
+
+        @include mq('sp') {
+            font-size: 12px;
+        }
 
         &:hover {
 
@@ -690,7 +728,7 @@ footer {
     &:not(:first-child) {
         margin-left: 30px;
 
-        @include mq(sp) {
+        @include mq('sp') {
             margin-left: 0px;
         }
     }
