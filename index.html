@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Nunito:wght@400;700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -22,22 +25,22 @@
                 <li class="header__list--item"><a href="#contact">CONTACT</a></li>
             </ul>
         </nav>
-
     </header>
     <main>
         <section class="about">
             <div class="wrapper">
                 <h2 class="section__title" id="about">ABOUT</h2>
-                <div class="section__line"></div>
-                <div class="about__contents">
+                <div class="about__contents slide-bottom show">
                     <div class="about__img"><img src="img/profile.jpg" alt="プロフィール" width="350" height="250"></div>
                     <div class="about__info">
-                        <p class="about__info--item">名前：高根 一輝</p>
-                        <p class="about__info--item">出身：栃木</p>
-                        <p class="about__info--item">住まい：新潟　佐渡</p>
-                        <p class="about__info--item">趣味：温泉、プログラミング</p>
+                        <p class="about__info--item">名前: 高根 一輝</p>
+                        <p class="about__info--item">出身: 栃木</p>
+                        <p class="about__info--item">住まい: 新潟 佐渡</p>
+                        <p class="about__info--item">仕事: コーダー 兼 十種競技選手</p>
+                        <p class="about__info--item">100m自己ベスト: 10"78 (+1.1m)</p>
                         <p class="about__info--description">
-                            大学からWeb制作の独学を始め、大学卒業後、佐渡でリモートワークをしながら、陸上競技の十種競技を現役で取り組んでいます。プログラミングが趣味で、ゲーム開発にも興味を持っています。
+                            佐渡でリモートで会社員としてコーダーのお仕事を行いながら、十種競技に取り組んでいます。<br>
+                            副業でHTML、CSS (Sass)、jQueryを用いたWeb制作のお仕事にも取り組んでいます。
                         </p>
                     </div>
                 </div>
@@ -46,27 +49,29 @@
         <section class="skill">
             <div class="wrapper">
                 <h2 class="section__title" id="skill">SKILL</h2>
-                <div class="section__line"></div>
-                <div class="skill__contents">
+                <div class="skill__contents slide-bottom show">
                     <div class="skill__item">
                         <p class="skill__item--title">HTML</p>
-                        <p class="skill__item--description">見やすいコードを心がけています。</p>
+                        <p class="skill__item--description">正確なコーディングを心がけています。</p>
                     </div>
                     <div class="skill__item">
                         <p class="skill__item--title">CSS</p>
-                        <p class="skill__item--description">スマートフォンに対応したレスポンシブデザインも可能です。</p>
+                        <p class="skill__item--description">
+                            用意していただいたデザインを正確に再現いたします。<br>
+                            スマホやタブレットに対応するレスポンシブデザインも可能です。
+                        </p>
                     </div>
                     <div class="skill__item">
                         <p class="skill__item--title">Sass</p>
-                        <p class="skill__item--description">素早くかつ保守性のあるコーディングを心がけています。</p>
+                        <p class="skill__item--description">素早くかつ保守性のあるコーディングをいたします。</p>
                     </div>
                     <div class="skill__item">
                         <p class="skill__item--title">jQuery</p>
-                        <p class="skill__item--description">ハンバーガーメニューなど、動きのあるサイトを制作します。</p>
+                        <p class="skill__item--description">ハンバーガーメニューやスライドなどアニメーションの機能追加も可能です。</p>
                     </div>
                     <div class="skill__item">
                         <p class="skill__item--title">WordPress</p>
-                        <p class="skill__item--description">オリジナルテーマの作成、サイトのWordPress化も可能です。</p>
+                        <p class="skill__item--description">HTML・CSSの静的サイトのWordPress化をいたします。</p>
                     </div>
                 </div>
             </div>
@@ -74,15 +79,14 @@
         <section class="service">
             <div class="wrapper">
                 <h2 class="section__title" id="service">SERVICE</h2>
-                <div class="section__line"></div>
-                <div class="service__contents">
+                <div class="service__contents slide-bottom show">
                     <div class="service__item">
                         <p class="service__item--title">Webサイト制作</p>
-                        <p class="service__item--description">ご用意していただいたデザインをもとに、LPやお店のホームページを制作いたします。</p>
+                        <p class="service__item--description">ご用意していただいたデザインをもとに、LPやお店のホームページをHTML、CSS (Sass)、jQueryを用いてコーディングいたします。</p>
                     </div>
                     <div class="service__item">
-                        <p class="service__item--title">WordPressテーマ制作</p>
-                        <p class="service__item--description">ご用意していただいたデザインをもとに、WordPressテーマをコーディングいたします。</p>
+                        <p class="service__item--title">WordPress<br>サイト制作</p>
+                        <p class="service__item--description">HTML・CSSの静的サイトから、WordPress化をいたします。</p>
                     </div>
                 </div>
             </div>
@@ -90,8 +94,7 @@
         <section class="works">
             <div class="wrapper">
                 <h2 class="section__title" id="works">WORKS</h2>
-                <div class="section__line"></div>
-                <div class="works__contents">
+                <div class="works__contents slide-bottom show">
                     <div class="works__content">
                         <div class="works__img"><a href="https://www.antead-inc.com/" target="_blank"><img
                                     src="img/antead-inc.jpg" alt="antead-inc.com" width="1097" height="676"></a></div>
@@ -116,10 +119,14 @@
         <section class="contact">
             <div class="wrapper">
                 <h2 class="section__title" id="contact">CONTACT</h2>
-                <div class="section__line"></div>
-                <p class="contact__lead">制作の依頼・ご相談などお気軽にお問い合わせくださいませ。<br>
-                    下記フォームよりわかる範囲でご記入ください。必須の項目は必ずご記入お願いします。</p>
-                <form class="contact__form" action="">
+                <p class="contact__lead">準備中...</p>
+                <!-- <p class="contact__lead">
+                    お問い合わせは十種競技野郎BLOGのお問い合わせフォームからお願いいたします。
+                </p>
+                <a href="" class="contact__link">十種競技野郎BLOG</a> -->
+                <!-- <p class="contact__lead">制作の依頼・ご相談などお気軽にお問い合わせくださいませ。<br>
+                    下記フォームよりわかる範囲でご記入ください。必須の項目は必ずご記入お願いします。</p> -->
+                <!-- <form class="contact__form" action="">
                     <div class="contact__form--item">
                         <label for="your-company">貴社名</label>
                         <input type="text" id="your-company">
@@ -141,9 +148,12 @@
                         <textarea name="" id="your-question" cols="30" rows="10"></textarea>
                     </div>
                     <div class="button"><button type="submit">内容を送信する</button></div>
-                </form>
-                <div class="top-button"><a href="#"><img src="img/top-button.png" alt="トップボタン" width="30"
-                            height="19"></a></div>
+                </form> -->
+                <div class="top-button">
+                    <a href="#">
+                        <img src="img/top-button.png" alt="トップボタン" width="30" height="19">
+                    </a>
+                </div>
             </div>
         </section>
         <footer>
@@ -156,6 +166,8 @@
             </ul>
         </footer>
     </main>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

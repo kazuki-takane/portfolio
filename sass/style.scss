@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 
 $color-first : #8697DA;
 $color-second: #309FB3;
 $color-third: #95C9C8;
+
+$font-family-ja: 'Noto Serif JP', serif;
+$font-family-en: 'Nunito', sans-serif;
 
 //マップ型変数breakpointsを定義
 $breakpoints: (
@@ -20,8 +22,13 @@ $breakpoints: (
     }
   }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-size: 16px;
+    color: #333;
     font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
     
     @include mq(sp) {
@@ -32,6 +39,13 @@ body {
 a {
     text-decoration: none;
 }
+
+/* フェードイン用のCSS */
+.slide-bottom {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1.3s 0s ease-out;
+  }
 
 /*========================================================
 main-visual
@@ -81,11 +95,34 @@ header {
 .header__list--item {
     a {
         color: #fff;
-        font-family: 'Inter', sans-serif;
+        font-family: $font-family-en;
         line-height: 60px;
+        letter-spacing: 0.1em;
+        position: relative;
 
         @include mq(sp) {
             line-height: 40px;
+        }
+
+        &:hover {
+
+            &::after {
+                transform-origin: center top;
+                transform: scale(1, 1);
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #fff;
+            transform-origin: right top;
+            transform: scale(0, 1);
+            transition: transform .3s;
         }
     }
 }
@@ -95,23 +132,31 @@ section共通
 =========================================================*/
 
 .section__title {
-    font-size: 40px;
+    font-size: 56px;
     text-align: center;
-    font-family:'メイリオ', 'Meiryo', sans-serif;
-}
+    font-family: $font-family-en;
+    position: relative;
+    margin-bottom: 140px;
+    letter-spacing: 0.05em;
 
-.section__line {
-    width: 50%;
-    height: 80px;
-    border-right: 1px solid #000;
+    &::after {
+        content: '';
+        position: absolute;
+        height: 80px;
+        width: 1px;
+        bottom: -80px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #000;
 
-    @include mq(sp) {
-        height: 40px;
+        @include mq(sp) {
+            height: 40px;
+        }
     }
 }
 
 .wrapper {
-    width: 830px;
+    width: 1000px;
     max-width: 90%;
     margin: auto;
 }
@@ -134,7 +179,7 @@ about
 
 .about__contents {
     display: flex;
-    margin-top: 50px;
+    align-items: center;
 
     @include mq(tab) {
         justify-content: space-between;
@@ -147,8 +192,10 @@ about
 }
 
 .about__img {
-    width: 350px;
-    height: 250px;
+    width: 45%;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.25);
     
     @include mq(tab) {
         width: 40%;
@@ -163,11 +210,12 @@ about
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: 50%;
     }
 }
 
 .about__info {
-    width: 410px;
+    width: 45%;
     margin-left: auto;
 
     @include mq(tab) {
@@ -183,13 +231,15 @@ about
 
 .about__info--item {
     font-weight: bold;
-    margin-left: 10px;
+    font-size: 20px;
+    margin-bottom: 4px;
 }
 
 .about__info--description {
     margin-top: 30px;
-    padding: 10px;
-    border: 1px solid #000;
+    font-size: 18px;
+    letter-spacing: 0.04em;
+    line-height: 1.6;
 }
 
 /*========================================================
@@ -198,6 +248,8 @@ skill
 
 .skill {
     margin: 150px auto 0;
+    padding: 80px 0 100px;
+    background-color: rgba($color: $color-third, $alpha: 0.4);
 
     @include mq(tab) {
         margin-top: 100px;
@@ -209,10 +261,6 @@ skill
 }
 
 .skill__contents {
-    height: auto;
-    margin-top: 50px;
-    border: 1px solid #000;
-    padding: 45px 30px;
 
     @include mq(tab) {
         padding: 20px 15px;
@@ -226,7 +274,8 @@ skill
 
 .skill__item {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
 
     &:not(:first-child) {
         margin-top: 20px;
@@ -234,14 +283,15 @@ skill
 }
 
 .skill__item--title {
-    width: 130px;
-    height: 32px;
-    line-height: 32px;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
     color: #fff;
     background-color: $color-second;
     border-radius: 30px;
-    font-size: 20px;
+    font-size: 32px;
     text-align: center;
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.25);
 
     @include mq(tab) {
         font-size: 18px;
@@ -253,7 +303,9 @@ skill
 }
 
 .skill__item--description {
-    width: 470px;
+    width: 60%;
+    margin-left: 50px;
+    font-size: 20px;
 
     @include mq(tab) {
         margin-left: 10px;
@@ -269,7 +321,7 @@ service
 =========================================================*/
 
 .service {
-    margin: 150px auto 0;
+    margin: 100px auto 0;
 
     @include mq(tab) {
         margin-top: 100px;
@@ -281,7 +333,6 @@ service
 }
 
 .service__contents {
-    margin-top: 50px;
 
     @include mq(sp) {
         margin-top: 30px;
@@ -290,6 +341,7 @@ service
 
 .service__item {
     display: flex;
+    align-items: center;
 
     @include mq(tab) {
         justify-content: center;
@@ -309,9 +361,14 @@ service
 }
 
 .service__item--title {
-    width: 270px;
-    font-weight: 700;
-    font-size: 24px;
+    font-weight: bold;
+    font-size: 32px;
+    width: 35%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgb(0 0 0 / 25%);
+    background-color: rgba($color: $color-first, $alpha: 0.1);
+    text-align: center;
 
     @include mq(tab) {
         width: 40%;
@@ -320,8 +377,9 @@ service
 }
 
 .service__item--description {
-    width: 480px;
+    font-size: 20px;
     margin-left: auto;
+    width: 60%;
 
     @include mq(tab) {
         width: 50%;
@@ -339,8 +397,8 @@ works
 
 .works {
     margin-top: 150px;
-    background-color: $color-third;
-    padding: 20px 0 64px;
+    background-color: rgba($color: $color-third, $alpha: 0.4);
+    padding: 100px 0;
 
     @include mq(tab) {
         margin-top: 100px;
@@ -352,7 +410,6 @@ works
 }
 
 .works__contents {
-    margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
 
@@ -371,7 +428,17 @@ works
 
 .works__img {
     width: 100%;
-    height: 160px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgb(0 0 0 / 25%);
+    overflow: hidden;
+
+    &:hover {
+
+        img {
+            transform: scale(1.1);
+        }
+    }
 
     @include mq(tab) {
         width: 400px;
@@ -382,6 +449,8 @@ works
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: 10px;
+        transition: transform 0.4s;
     }
 }
 
@@ -389,7 +458,31 @@ works
     margin: 20px auto 0;
     text-align: center;
     a {
-        color: #000;
+        color: #333;
+        position: relative;
+        font-size: 18px;
+        padding-bottom: 4px;
+
+        &:hover {
+
+            &::after {
+                transform-origin: center top;
+                transform: scale(1, 1);
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #333;
+            transform-origin: right top;
+            transform: scale(0, 1);
+            transition: transform .3s;
+        }
     }
 }
 
@@ -398,7 +491,7 @@ contact
 =========================================================*/
 
 .contact {
-    margin-top: 150px;
+    margin-top: 100px;
 
     @include mq(tab) {
         margin-top: 100px;
@@ -412,6 +505,7 @@ contact
 .contact__lead {
     width: 80%;
     margin: 50px auto 0;
+    text-align: center;
 
     @include mq(tab) {
         width: 100%;
@@ -517,7 +611,8 @@ footer
 
 footer {
     height: 60px;
-    margin-top: 70px;
+    margin-top: 100px;
+    background-color: $color-first;
 
     @include mq(sp) {
         height: 40px;
@@ -549,9 +644,31 @@ footer {
 .footer__list--item {
 
     a {
-        color: #000;
-        font-weight: 700;
-        font-family: 'Inter', sans-serif;
+        color: #fff;
+        font-weight: bold;
+        font-family: $font-family-en;
+        position: relative;
+
+        &:hover {
+
+            &::after {
+                transform-origin: center top;
+                transform: scale(1, 1);
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #fff;
+            transform-origin: right top;
+            transform: scale(0, 1);
+            transition: transform .3s;
+        }
     }
 
     &:not(:first-child) {
