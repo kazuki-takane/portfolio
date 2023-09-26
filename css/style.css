@@ -309,7 +309,7 @@ skill
 }
 @media (max-width: 767px) {
   .skill__item:not(:first-child) {
-    margin-top: 40px;
+    margin-top: 20px;
   }
 }
 @media (max-width: 767px) {
@@ -353,6 +353,23 @@ skill
     margin-top: 30px;
     font-size: 14px;
     text-align: center;
+  }
+}
+
+.skill__boxes {
+  display: flex;
+  justify-content: space-evenly;
+}
+@media (max-width: 767px) {
+  .skill__boxes {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .skill__box {
+    display: block;
+    margin-top: 20px;
   }
 }
 
